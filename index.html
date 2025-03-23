@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background change</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="img-container">
+      <img
+        src="background_change_img/transparent.png"
+        id="transparent"
+        alt="pic"
+        width="100%"
+      />
+      <div id="img-wrap">
+        <img src="background_change_img/original.jpg" id="original" alt="pic" />
+        <span id="img-handle">
+          <img src="background_change_img/arrow.png"  />
+        </span>
+      </div>
+    </div>
+    <script>
+      let imgCont = document.querySelector(".img-container");
+      let trans = document.getElementById("transparent");
+      let imgWrap = document.querySelector("#img-wrap");
+      let original = document.getElementById("original");
+      let handle = document.getElementById("img-handle");
+
+      original.style.width = imgCont.offsetWidth + "px";
+  
+      let spaceLeft = imgCont.offsetLeft;
+
+      imgCont.onmousemove = (e) => {
+        imgWrap.style.width = e.pageX - spaceLeft + "px";
+        handle.style.left = e.pageX - spaceLeft + "px";
+      };
+    </script>
+  </body>
+</html>
